@@ -43,7 +43,7 @@ public class App extends Application {
         // Update UI AFTER creating the ColorService // ? (can't be called in initialize)
         controller.updateUI();
 
-        stage.setTitle("ColorGrab");
+        stage.setTitle("ColorSnip");
         stage.getIcons().add(new Image(App.class.getResourceAsStream("/org/explement/icon.png")));  // * Use png for running Java, .ico for jpackage
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/org/explement/styles.css").toExternalForm());
