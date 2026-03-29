@@ -45,6 +45,7 @@ public class PrimaryController {
 
     private ColorService colorService;
     private Transition colorSwatchAnimation;
+    private long lastGrabTime = 0;
 
     private final ColorAdjust GRABCOLOR_BUTTON_HOVER_EFFECT = new ColorAdjust();
     private final DropShadow DROP_SHADOW = new DropShadow(BlurType.GAUSSIAN, Color.color(0, 0, 0, 0.15), 10, 0, 0, 1);
@@ -110,6 +111,8 @@ public class PrimaryController {
     public void toggleGrab() {
         colorService.setIsGrabbing(true);
         grabColorButton.setDisable(true);
+        // Record the time when grabbing started to prevent immediate triggering
+        lastGrabTime = System.currentTimeMillis();
     }
 
     public void handleClick(int x, int y) {
@@ -146,6 +149,10 @@ public class PrimaryController {
 
     public ColorService getColorService() {
         return colorService;
+    }
+
+    public long getLastGrabTime() {
+        return lastGrabTime;
     }
 
     public void setColorService(ColorService colorService) {

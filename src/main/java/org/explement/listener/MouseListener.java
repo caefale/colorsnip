@@ -15,7 +15,7 @@ public class MouseListener implements NativeMouseInputListener {
 		this.controller = controller;
 	}
 
-	public void nativeMouseClicked(NativeMouseEvent e) {
+	public void nativeMouseReleased(NativeMouseEvent e) {
 		if (controller.getColorService().isGrabbing()) {
 			Platform.runLater(() -> {
 				double scaleX = Screen.getPrimary().getOutputScaleX();
